@@ -47,7 +47,7 @@ def prompt_resolve(r, cycle):
 
 def play():
     b = board.init()
-    for r in range(1,9):
+    for r in range(9):
         b = turn(r, b)
         board.draw(b)
         c = state.find_cycle(b)

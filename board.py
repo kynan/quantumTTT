@@ -36,4 +36,4 @@ def draw(board):
     print ''.join(line)
 
 def init():
-    return []
+    return [[]]*9

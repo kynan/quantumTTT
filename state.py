@@ -34,8 +34,10 @@ def find_cycle_for_square(board, start):
             
         if square in visited:
             for s in visited:
+                # FIXME
                 pass
         for move in square:
+            # FIXME
             pass
     return None
 
