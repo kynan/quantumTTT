@@ -1,5 +1,17 @@
 import string
 
+faux_board = [
+    [],
+    [],
+    [0, 2],
+    [0],
+    [1, 2],
+    [1],
+    [],
+    [],
+    []
+]
+
 def draw(board):
     line = []
     for i in range(9):
