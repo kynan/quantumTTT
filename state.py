@@ -14,11 +14,31 @@ def won(board):
             print triple[0], 'wins the Quantum game in this universe and maybe others too?'
             sys.exit()
 
-
 def find_cycle(board):
     """
     Return a cycle (list of ints in the range [0..8]) if there is one, or None otherwise
     """
 
+    visited = set()
+    for square in board:
+        find_cycle_for_square(board, square)
+
+def find_cycle_for_square(board, start):
+    """
+    Return a cycle (list of ints in the range [0..8]) if there is one, or None otherwise
+    """
+    visited = set()
+    for square in board:
+        if isinstance(square, basestring):
+            continue
+            
+        if square in visited:
+            for s in visited:
+                pass
+        for move in square:
+            pass
     return None
+
+def find_pair(board, move_num):
+    return [i for i,b in enumerate(board) for z in board if z == move_num]
 
