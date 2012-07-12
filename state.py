@@ -1,11 +1,24 @@
+import sys
+
 def won(board):
     """
     Return true if the game has ended (i.e. one of the players won)
     """
-    return False
+
+    winning_moves = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [1, 4, 7], [2, 5, 8], [3, 6, 9], [1, 5, 9], [3, 5, 7]]
+    for winner in winning_moves:
+        triple = [board[i] for i in winner]
+        all_collapsed = all(isinstance(z, basestring) for z in triple)
+        all_same_letter = len(set(triple)) == 1
+        if all_collapsed and all_same_letter:
+            print triple[0], 'wins the Quantum game in this universe and maybe others too?'
+            sys.exit()
+
 
 def find_cycle(board):
     """
     Return a cycle (list of ints in the range [0..8]) if there is one, or None otherwise
     """
+
     return None
+
