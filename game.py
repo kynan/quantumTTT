@@ -5,10 +5,27 @@ import state
 
 def playernum(r):
     return (r % 2) + 1
+
+def read_pos(prompt):
+    p = int(raw_input(prompt))
+    if p in range(9):
+        return p
+    else:
+        print "Illegal input! Valid range: 0-8."
+        return read_pos(prompt)
+
+def read_sym(prompt):
+    p = raw_input(prompt)
+    if p in ['X','O']:
+        return p
+    else:
+        print "Illegal input! Valid inputs: X, O."
+        return read_pos(prompt)
+
 def turn(r, board):
     print "Player %d's turn:" % playernum(r)
-    p1 = raw_input('Enter first move [0-8] ')
-    p2 = raw_input('Enter second move [0-8] ')
+    p1 = read_pos('Enter first move [0-8] ')
+    p2 = read_pos('Enter second move [0-8] ')
     newboard = copy.deepcopy(board)
     try:
         newboard[p1].append(r)
@@ -20,8 +37,8 @@ def turn(r, board):
 
 def prompt_resolve(r, cycle):
     print "Player %d, collapse the following cycle:" % playernum(r+1), cycle
-    pos = raw_input("Enter a position ")
-    sym = raw_input("Enter a symbol (X/O) ")
+    pos = read_pos("Enter a position ")
+    sym = read_sym("Enter a symbol (X/O) ")
     sym_parity = {'X':0 , 'O':1}[sym]
     if not sym_parity in [i % 2 for i in  board[pos]]:
         print 'Illegal choice'
