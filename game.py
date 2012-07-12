@@ -25,7 +25,8 @@ def play():
         board.draw(b)
         c = state.find_cycle(b)
         if c:
-            b = collapse(board, cycle)
+            square, symbol = prompt_resolve()
+            b = state.collapse(b, square, symbol)
         if state.won(b):
             print "Player %d won!" % ((round % 2) + 1)
             break
